@@ -1,8 +1,18 @@
 /*
-To reproduce VM crash:
+To reproduce VM crash (on 1.7):
 java -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining CHA
 
 java -XX:+UnlockDiagnosticVMOptions -XX:+PrintCompilation CHA
+
+Assembly:
+The libhsdis disassembler library:
+https://kenai.com/projects/base-hsdis/downloads/directory/gnu-versions
+
+Java flags:
+http://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html
+
+Print (Intel) assembly for a specific method (instead of -XX:+PrintAssembly):
+java -XX:+UnlockDiagnosticVMOptions -XX:PrintAssemblyOptions=intel -XX:CompileCommand="print AddOperation perform" CHA
 */
 public class CHA {
 
