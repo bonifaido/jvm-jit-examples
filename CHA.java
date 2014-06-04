@@ -1,7 +1,5 @@
 /*
-To reproduce VM crash (on 1.7):
 java -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining CHA
-
 java -XX:+UnlockDiagnosticVMOptions -XX:+PrintCompilation CHA
 
 Assembly:
