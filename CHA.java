@@ -1,6 +1,7 @@
 /*
 java -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining CHA
 java -XX:+UnlockDiagnosticVMOptions -XX:+PrintCompilation CHA
+java -Dload=8 CHA
 
 Assembly:
 The libhsdis disassembler library:
@@ -19,22 +20,23 @@ public class CHA {
 
     public static void main(String[] args) throws Exception {
         operation = new AddOperation();
-        benchmark();
+        benchmark(Integer.getInteger("load", -1));
     }
 
-    public static void benchmark() throws Exception {
+    public static void benchmark(int load) throws Exception {
         for (int i = 0; i < 10; i++) {
 
-            if (i == 7) Class.forName("SubstractOperation");
+            if (i == load) Class.forName("SubstractOperation");
 
             long start = System.nanoTime();
             for (int j = 0; j < 1000000; j++) {
                 result = operation.perform(j, 1);
             }
             long end = System.nanoTime();
+
             System.out.println((end - start) + " ns");
         }
-        System.out.println(result);
+        System.out.println("Result: " + result);
     }
 }
 
