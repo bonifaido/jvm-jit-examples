@@ -1,6 +1,6 @@
 /**
  * OnStackReplacement
- * -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining
+ * -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining -XX:+PrintCompilation
  * -XX:-TieredCompilation
  */
 public class OnStackReplacement {
